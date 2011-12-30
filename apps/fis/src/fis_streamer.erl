@@ -15,7 +15,7 @@ init([Req]) ->
 handle_event({new_favicon, Url}, Req) ->
   error_logger:info_msg("Request in handle_event: ~p~n", [Req]),
   error_logger:info_msg("NEW FAVICON!!! ~p~n", [Url]),
-  Req:stream("id: 0\n"),
+  Req:stream("id: 1\n"),
   Req:stream("data: ick werd beklopptTM\n\n"),
   {ok, Req}.
 
