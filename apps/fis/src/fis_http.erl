@@ -1,6 +1,6 @@
 -module(fis_http).
 
--export([start/1, stop/0]).
+-export([start/1, stop/0, handle_http/1]).
 
 % start misultin http server
 start(Port) ->
@@ -21,4 +21,4 @@ handle('GET', [], Req) ->
 % starts on fis_
 handle('GET', ["events"], Req) ->
   % register new event handler and pass Req as its state
-  ok.
+  gen_event:add_handler( fis_event, fis_streamer, [Req]).
