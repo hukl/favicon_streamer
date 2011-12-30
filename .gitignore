@@ -1,1 +1,4 @@
 *.beam
+.DS_Store
+apps/*/ebin/*.app
+deps/*
