@@ -1,0 +1,13 @@
+{application, fis,
+ [
+  {description, ""},
+  {vsn, "0.0.1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  sasl
+                 ]},
+  {mod, {fis, []}},
+  {env, []}
+ ]}.
