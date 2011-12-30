@@ -24,7 +24,10 @@ start_link() ->
 %% ===================================================================
 
 init([]) ->
-  Children = [],
+  Children = [
+    ?CHILD(fis_event, worker),
+    ?CHILD(fis_tcpflow, worker)
+  ],
 
   RestartStrategy = {one_for_one, 0, 1},
 
