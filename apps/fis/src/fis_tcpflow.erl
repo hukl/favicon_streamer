@@ -55,7 +55,7 @@ handle_info( Info, State ) ->
   case re:run( Data, State#state.regex, [global,{capture,[1,2],list}] ) of
     {match, [[Path,Host]]} ->
       error_logger:info_msg("Host: ~p~nPath: ~p~n", [Host, Path]),
-      gen_event:notify( fis_event, {new_favicon, lists:append(Host, Path)} );
+      gen_event:notify( fis_event, {favicon, lists:append(Host, Path)} );
     _ -> ok
   end,
   { noreply, State }.
