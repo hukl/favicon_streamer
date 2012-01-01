@@ -39,7 +39,13 @@
 
         if (urls.indexOf(url) == -1) {
           urls.push( url );
-          $("body").append('<img src="http://' + e.data + '" alt="favicon" width="100px" height="100px" />');
+          var image = $('<img src="http://' + e.data + '" alt="favicon" width="100px" height="100px" />');
+          image.error( function(event) {
+            console.log(event);
+            $(event.target).remove();
+          })
+
+          $("body").append(image);
         }
       }, false);
 
