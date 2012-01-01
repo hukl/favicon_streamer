@@ -18,7 +18,8 @@
 
     <script>
       // /events sends messages with text/event-stream mimetype.
-      var source = new EventSource('/events');
+      var urls    = [];
+      var source  = new EventSource('/events');
 
       function closeConnection() {
         source.close();
@@ -31,9 +32,15 @@
           return;
         }
 
-        console.log(e.data);
+        var url = e.data;
 
-        $("body").append('<img src="http://' + e.data + '" alt="favicon" /><br />');
+        console.log(url);
+        console.log(urls);
+
+        if (urls.indexOf(url) == -1) {
+          urls.push( url );
+          $("body").append('<img src="http://' + e.data + '" alt="favicon" />');
+        }
       }, false);
 
       source.addEventListener('open', function(e) {
