@@ -15,6 +15,8 @@
 % Record which holds the Port
 -record(state, { port, regex }).
 
+-define( REGEX, re:compile("GET\\s(.*favicon\\.\\w+|.*\\.ico).+\\r\\nHost\\:\\s?(.+)\\b") ).
+
 %% ===================================================================
 %% Management API
 %% ===================================================================
@@ -35,7 +37,7 @@ init([]) ->
   Cmd   = "tcpflow -i en1 -c -s -b 1024 dst port 80",
   Port  = open_port({spawn, Cmd}, [stream, use_stdio, exit_status, binary]),
 
-  { ok, Regex } = re:compile("GET\\s(.*favicon\\.\\w+|.*\\.ico).+\\r\\nHost\\:\\s?(.+)\\b"),
+  { ok, Regex } = ?REGEX,
   { ok, #state{ port = Port, regex = Regex } }.
 
 handle_call( _Msg, _From, State ) ->
