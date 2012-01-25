@@ -34,8 +34,8 @@ stop() -> gen_server:cast(?MODULE, stop).
 %% ===================================================================
 
 init([]) ->
-  Cmd   = "tcpflow -i en1 -c -s -b 1024 dst port 80",
-  Port  = open_port({spawn, Cmd}, [stream, use_stdio, exit_status, binary]),
+  { ok, Cmd } = application:get_env(sniffer_command),
+  Port = open_port({spawn, Cmd}, [stream, use_stdio, exit_status, binary]),
 
   { ok, Regex } = ?REGEX,
   { ok, #state{ port = Port, regex = Regex } }.

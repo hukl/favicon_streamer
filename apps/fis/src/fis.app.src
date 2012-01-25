@@ -9,5 +9,7 @@
                   sasl
                  ]},
   {mod, {fis_app, []}},
-  {env, []}
+  {env, [
+    { sniffer_command, "tcpflow -i en0 -c -s -b 1024 dst port 80" }
+  ]}
  ]}.
