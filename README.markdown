@@ -13,7 +13,7 @@ git clone git://github.com/hukl/favicon_streamer.git
 cd favicon_streamer
 ```
 
-Edit ```apps/fis/srs/fis.app.src``` and adjust the sniffer command, especially
+Edit ```apps/fis/src/fis.app.src``` and adjust the sniffer command, especially
 the interface to use.
 
 Then either run the app directly by invoking:
