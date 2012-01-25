@@ -31,8 +31,8 @@ handle('GET', ["events"], Request) ->
 
   stream(Request);
 
-handle('GET', [_], Request) ->
-  Request:respond(400, [{"Content-Type", "text/plain"}], "Not Found").
+handle(_, [_], Request) ->
+  Request:respond(404, [{"Content-Type", "text/plain"}], "Not Found").
 
 stream(Request) ->
   receive
