@@ -37,3 +37,8 @@ cd ..
 rebar compile && rebar generate -f
 ./rel/fis/bin/fis console
 ```
+
+The go to http://localhost:8000 with your browser and start looking at favicons.
+
+Note that favicons are cached seperatly in some browsers so try to visit sites
+at first which you usually don't browse and see if it works.
