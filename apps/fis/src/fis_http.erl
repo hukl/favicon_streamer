@@ -29,7 +29,10 @@ handle('GET', ["events"], Request) ->
     head, [{"Content-Type", "text/event-stream"},{"Connection", "keep-alive"}]
   ),
 
-  stream(Request).
+  stream(Request);
+
+handle('GET', [_], Request) ->
+  Request:respond(400, [{"Content-Type", "text/plain"}], "Not Found").
 
 stream(Request) ->
   receive
