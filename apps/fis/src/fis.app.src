@@ -8,6 +8,6 @@
                   stdlib,
                   sasl
                  ]},
-  {mod, {fis, []}},
+  {mod, {fis_app, []}},
   {env, []}
  ]}.
