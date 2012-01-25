@@ -1,7 +1,9 @@
 ## Usage
 
-Install ```tcpflow``` and make sure it is available in your patch. Make sure you
+Install ```tcpflow``` and make sure it is available in your path. Make sure you
 have the proper permissions to put you network interface in promiscuous mode.
+
+You can get the latest version here: http://afflib.org/downloads/
 
 Get the source:
 
